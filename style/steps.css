@@ -1,0 +1,21 @@
+.steps {
+    display: flex;
+    gap: 44px;
+    justify-content: center;
+    counter-reset: steps-counter;
+}
+
+.steps__item {
+    display: flex;
+    align-items: center;
+    flex-basis: 243px;
+    font-size: 18px;
+}
+
+.steps__item::before {
+    content: counter(steps-counter);
+    counter-increment: steps-counter;
+    font-size: 92px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-right: 16px;
+}
