@@ -1,0 +1,183 @@
+.edit {
+    margin-bottom: 174px;
+}
+
+.edit__avatar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 113px;
+}
+
+.edit__avatar-image {
+    max-width: 437px;
+    width: 100%;
+    border-radius: 50%;
+    margin-right: 106px;
+}
+
+.edit__avatar-load {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.edit__input-file {
+    display: none;
+}
+
+.edit__label-avatar {
+    display: flex;
+    align-items: center;
+    font-size: 38px;
+    margin-bottom: 11px;
+    gap: 2px;
+    cursor: pointer;
+}
+
+.edit__avatar-delete {
+    display: flex;
+    align-items: center;
+    font-size: 38px;
+    gap: 2px;
+}
+
+.edit__name {
+    display: flex;
+    margin-bottom: 44px;
+    gap: 36px;
+}
+
+.edit__label {
+    max-width: 686px;
+}
+
+.edit__label-text {
+    display: block;
+    font-size: 50px;
+    margin-bottom: 14px;
+}
+
+.edit__input {
+    display: block;
+    font-size: 48px;
+    width: 100%;
+    height: 100px;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    color: #282828;
+    padding: 0 32px;
+    border: none;
+}
+
+.edit__birthdate {
+    display: flex;
+    margin-bottom: 44px;
+    gap: 12px;
+}
+
+.edit__label_select {
+    position: relative;
+}
+
+.edit__label_select:after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 34px;
+    height: 34px;
+    background-image: url('../img/arrow-down.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    pointer-events: none;
+    transition: transform 0.2s;
+}
+
+.edit__label_select:focus-within::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.edit__select {
+    appearance: none;
+    border-radius: 15px;
+    background-color: #FFFFFF;
+    cursor: pointer;
+    font-size: 48px;
+    color: #282828;
+    padding: 22px 50px 22px 32px;
+    outline: none;
+}
+
+.edit__description {
+    margin-bottom: 68px;
+}
+
+.edit__description-input {
+    max-width: 1420px;
+    width: 100%;
+    min-height: 250px;
+    font-size: 38px;
+    padding: 35px 32px;
+    resize: none;
+    border: 3px solid #365ABA;
+    border-radius: 15px;
+}
+
+.edit__submit-btn {
+    margin-right: 22px;
+}
+
+.edit__wish {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 44px 36px;
+    margin-bottom: 44px;
+}
+
+.edit__label-price {
+    flex: 0 1 50%;
+}
+
+.edit__wish-price {
+    display: flex;
+    gap: 36px;
+    align-items: flex-end;
+}
+
+.edit__label-select {
+
+}
+
+.edit__select_currency {
+    width: 100%;
+}
+
+.edit__wish-photo {
+    position: relative;
+    width: 285px;
+    height: 285px;
+    margin-bottom: 152px;
+}
+
+.edit__label-photo {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+.edit__wish-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 15px;
+    background-color: #FFFFFF;
+}
+
+.edit__wish-delete {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}

@@ -78,3 +78,8 @@ fieldset {
     font-size: 34px;
     text-transform: capitalize;
 }
+
+.btn_castling {
+    background-color: #365ABA;
+    color: #FFFFFF;
+}

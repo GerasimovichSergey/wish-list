@@ -1,0 +1,27 @@
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    background: #FFFFFF;
+    color: #282828;
+    padding: 28px 35px 43px;
+    min-height: 607px;
+}
+
+.item__image {
+    width: 300px;
+    height: 300px;
+}
+
+.item__title {
+    font-weight: 400;
+    font-size: 28px;
+    margin-bottom: 6px;
+}
+
+.item__price {
+    flex-grow: 1;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
