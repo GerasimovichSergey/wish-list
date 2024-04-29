@@ -2,20 +2,23 @@ html {
     box-sizing: border-box;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: inherit;
 }
 
 body {
+    min-width: 320px;
+    min-height: 100vh;
     font-family: Roboto, sans-serif;
     font-weight: 400;
     background: #365ABA;
     color: #FFFFFF;
-    min-width: 320px;
-    min-height: 100vh;
 }
 
-img, svg {
+img,
+svg {
     display: block;
     max-width: 100%;
     max-height: 100%;
@@ -36,19 +39,24 @@ a {
     color: inherit;
 }
 
-ul, ol {
+ul,
+ol {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-h1, h2, h3, h4, p {
+h1,
+h2,
+h3,
+h4,
+p {
     margin: 0;
 }
 
 fieldset {
-    padding: 0;
     margin: 0;
+    padding: 0;
     border: 0;
 }
 
@@ -72,14 +80,54 @@ fieldset {
 
 .btn {
     padding: 10px 20px;
-    background-color: #FFFFFF;
+    background: #FFFFFF;
     border-radius: 15px;
-    color: #365ABA;
     font-size: 34px;
     text-transform: capitalize;
+    color: #365ABA;
 }
 
 .btn_castling {
-    background-color: #365ABA;
+    background: #365ABA;
     color: #FFFFFF;
+}
+
+@media (max-width: 1700px) {
+    .container {
+        padding: 0 32px;
+    }
+
+    .btn {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 22px;
+    }
+
+    .btn {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        padding: 0 34px;
+    }
+}
+
+@media (max-width: 740px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .btn {
+        font-size: 20px;
+    }
+
+    .btn_castling {
+        font-size: 24px;
+    }
 }

@@ -12,10 +12,43 @@
     font-size: 18px;
 }
 
-.steps__item::before {
+.steps__item:before {
     content: counter(steps-counter);
     counter-increment: steps-counter;
-    font-size: 92px;
     color: rgba(255, 255, 255, 0.6);
+    font-size: 92px;
     margin-right: 16px;
+}
+
+@media (max-width: 992px) {
+    .steps {
+        gap: 25px;
+    }
+
+    .steps__item {
+        flex-basis: 204px;
+        font-size: 16px;
+    }
+
+    .steps__item:before {
+        margin-right: 8;
+    }
+}
+
+
+@media (max-width: 992px) {
+    .steps {
+        flex-direction: column;
+        max-width: 220px;
+    }
+
+    .steps__item {
+        flex-basis: auto;
+        text-align: center;
+    }
+
+    .steps__item:before {
+        margin-right: 16px;
+        font-size: 40px;
+    }
 }

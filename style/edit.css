@@ -1,5 +1,5 @@
 .edit {
-    margin-bottom: 174px;
+    padding-bottom: 174px;
 }
 
 .edit__avatar {
@@ -27,24 +27,24 @@
 
 .edit__label-avatar {
     display: flex;
+    gap: 2px;
     align-items: center;
     font-size: 38px;
-    margin-bottom: 11px;
-    gap: 2px;
+    margin-bottom: 12px;
     cursor: pointer;
 }
 
 .edit__avatar-delete {
     display: flex;
+    gap: 2px;
     align-items: center;
     font-size: 38px;
-    gap: 2px;
 }
 
 .edit__name {
     display: flex;
-    margin-bottom: 44px;
     gap: 36px;
+    margin-bottom: 44px;
 }
 
 .edit__label {
@@ -58,8 +58,8 @@
 }
 
 .edit__input {
-    display: block;
     font-size: 48px;
+    display: block;
     width: 100%;
     height: 100px;
     background-color: #FFFFFF;
@@ -69,9 +69,10 @@
     border: none;
 }
 
+
 .edit__birthdate {
-    display: flex;
     margin-bottom: 44px;
+    display: flex;
     gap: 12px;
 }
 
@@ -93,7 +94,6 @@
     background-position: center;
     background-size: contain;
     pointer-events: none;
-    transition: transform 0.2s;
 }
 
 .edit__label_select:focus-within::after {
@@ -103,10 +103,10 @@
 .edit__select {
     appearance: none;
     border-radius: 15px;
-    background-color: #FFFFFF;
     cursor: pointer;
     font-size: 48px;
     color: #282828;
+    background-color: #FFFFFF;
     padding: 22px 50px 22px 32px;
     outline: none;
 }
@@ -122,6 +122,7 @@
     font-size: 38px;
     padding: 35px 32px;
     resize: none;
+    background: #FFFFFF;
     border: 3px solid #365ABA;
     border-radius: 15px;
 }
@@ -130,14 +131,19 @@
     margin-right: 22px;
 }
 
+.edit__submit-btn:last-child {
+    margin-right: 0;
+}
+
 .edit__wish {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 44px 36px;
     margin-bottom: 44px;
+
 }
 
-.edit__label-price {
+.edit__label_price {
     flex: 0 1 50%;
 }
 
@@ -147,37 +153,234 @@
     align-items: flex-end;
 }
 
-.edit__label-select {
-
-}
 
 .edit__select_currency {
     width: 100%;
 }
 
 .edit__wish-photo {
-    position: relative;
     width: 285px;
     height: 285px;
     margin-bottom: 152px;
+    position: relative;
 }
 
 .edit__label-photo {
-    display: inline-block;
     position: relative;
     cursor: pointer;
 }
+
 .edit__wish-image {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
+    background: #FFFFFF;
     border-radius: 15px;
-    background-color: #FFFFFF;
 }
 
 .edit__wish-delete {
     position: absolute;
     top: 8px;
     right: 8px;
+}
+
+
+@media (max-width: 1200px) {
+    .edit__avatar {
+        margin-bottom: 56px;
+    }
+
+    .edit__avatar-image {
+        max-width: 466px;
+        margin-right: 34px;
+    }
+
+    .edit__name {
+        flex-direction: column;
+        gap: 40px;
+        margin-bottom: 30px;
+    }
+
+    .edit__birthdate {
+        margin-bottom: 40px;
+    }
+
+    .edit__description-input {
+        min-height: 311px;
+    }
+
+    .edit__description {
+        margin-bottom: 40px;
+    }
+
+    .edit__wish {
+        grid-template-columns: 1fr;
+    }
+
+    .edit__label {
+        max-width: 694px;
+    }
+
+    .edit__submit-btn {
+        margin-right: 18px;
+    }
+}
+
+@media (max-width: 992px) {
+    .edit {
+        padding-bottom: 80px;
+    }
+
+    .edit__avatar {
+        margin-bottom: 64px;
+    }
+
+    .edit__avatar-image {
+        max-width: 340px;
+        margin-right: 25px;
+    }
+
+    .edit__icon-avatar {
+        flex: 0 0 30px;
+    }
+
+    .edit__label-avatar {
+        font-size: 24px;
+        gap: 5px;
+    }
+
+    .edit__avatar-delete {
+        font-size: 24px;
+        gap: 5px;
+    }
+
+    .edit__name {
+        gap: 44px;
+        margin-bottom: 44px;
+    }
+
+    .edit__birthdate {
+        margin-bottom: 44px;
+    }
+
+    .edit__description-input {
+        min-height: 503px;
+    }
+
+    .edit__description {
+        margin-bottom: 62px;
+    }
+
+    .edit__wish-photo {
+        margin-bottom: 62px;
+    }
+
+    .edit__submit-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 44px 18px;
+    }
+}
+
+@media (max-width: 740px) {
+    .edit {
+        padding-top: 16px;
+        padding-bottom: 46px;
+    }
+
+    .edit__avatar {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 32px;
+    }
+
+    .edit__avatar-image {
+        max-width: 160px;
+        margin-right: 0;
+        margin-bottom: 16px;
+    }
+
+    .edit__icon-avatar {
+        flex-basis: 16px;
+
+    }
+
+    .edit__label-avatar {
+        font-size: 14px;
+        gap: 6px;
+        justify-content: center;
+    }
+
+    .edit__avatar-delete {
+        font-size: 14px;
+        gap: 6px;
+        justify-content: center;
+    }
+
+    .edit__avatar-load {
+        align-items: center;
+    }
+
+    .edit__input {
+        font-size: 20px;
+        height: 47px;
+        padding: 0 18px;
+    }
+
+    .edit__label-text {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+
+    .edit__name {
+        gap: 24px;
+        margin-bottom: 24px;
+    }
+
+    .edit__birthdate {
+        margin-bottom: 24px;
+    }
+
+    .edit__description-input {
+        min-height: 288px;
+    }
+
+    .edit__description {
+        margin-bottom: 24px;
+    }
+
+    .edit__select {
+        border-radius: 8px;
+        font-size: 20px;
+        padding: 12px 27px 12px 18px;
+    }
+
+    .edit__label_select:after {
+        width: 18px;
+        height: 18px;
+    }
+
+    .edit__wish{
+        gap: 24px;
+    }
+
+    .edit__select_currency {
+        border-radius: 15px;
+    }
+
+    .edit__wish-price {
+        gap: 14px;
+    }
+
+    .edit__wish-photo {
+        width: 288px;
+        height: 288px;
+        margin-bottom: 32px;
+    }
+
+
+    .edit__submit-wrapper {
+        gap: 24px;
+    }
 }
