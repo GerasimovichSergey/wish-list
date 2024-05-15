@@ -15,6 +15,7 @@ body {
     font-weight: 400;
     background: #365ABA;
     color: #FFFFFF;
+    overflow: hidden;
 }
 
 img,
