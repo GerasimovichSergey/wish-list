@@ -1,7 +1,7 @@
 import { renderNavigation } from './renderNavigation.js';
 import { createHero } from './createHero.js';
 import { JWT_TOKEN_KEY } from './const.js';
-import { getLogin } from './getLogin.js';
+import { getLogin } from './serviceAPI.js';
 import { createWishlist } from './createWishlist.js';
 
 
@@ -22,7 +22,7 @@ const handleEditProfileRoute = (login) => {
 const handleUserRoute = async (login) => {
     app.textContent = '';
     renderNavigation();
-    // app.append(await createWishlist(login));
+    app.append(await createWishlist(login));
 };
 
 const handleHomePage = () => {
