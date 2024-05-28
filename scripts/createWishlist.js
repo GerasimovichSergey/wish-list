@@ -50,7 +50,6 @@ export const createWishlist = async (pageLogin) => {
 
     if (user.birthdate) {
         const birthday = new Date(user.birthdate);
-        console.log(birthday);
         const day = birthday.getDate();
         const month = pluralizeMonth(birthday.getMonth());
         // const month = birthday.toLocaleString('default', { month: 'long' });

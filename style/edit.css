@@ -69,9 +69,11 @@
     border: none;
 }
 
-
 .edit__birthdate {
     margin-bottom: 44px;
+}
+
+.edit__birthday-wrapper {
     display: flex;
     gap: 12px;
 }
@@ -361,7 +363,7 @@
         height: 18px;
     }
 
-    .edit__wish{
+    .edit__wish {
         gap: 24px;
     }
 
