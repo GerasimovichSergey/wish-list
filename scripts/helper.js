@@ -1,6 +1,3 @@
-import { MONTH } from './const.js';
-
-
 export const createElement = (tagName, attribute) => {
     const elem = document.createElement(tagName);
     Object.assign(elem, attribute);
@@ -25,14 +22,22 @@ export const pluralizeYears = (age) => {
     }
 };
 
-export const pluralizeMonth = (monthDate) => {
-    const month = MONTH[monthDate];
+export const handelImageFileSelection = (inputFile, image, inputHidden) => {
+    const handleFileInputChange = (event) => {
+        if (event.target.files.length > 0) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
 
-    return month;
-};
+            reader.addEventListener('load', () => {
+                image.src = reader.result;
+                inputHidden.value = reader.result;
+            });
 
-export const handelImageFileSelection = (input, image) => {
+            reader.readAsDataURL(file);
+        }
+    };
 
+    inputFile.addEventListener('change', handleFileInputChange);
 };
 
 export const createSelectDate = (selectDay, selectMonth, selectYear, birthdate) => {
@@ -74,7 +79,7 @@ export const createSelectDate = (selectDay, selectMonth, selectYear, birthdate) 
     }
 
     if (birthdate) {
-        const [day, month, year] = birthdate.split('/');
+        const [month, day, year] = birthdate.split('/');
 
         selectDay.value = day;
         selectMonth.value = month;

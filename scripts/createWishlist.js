@@ -1,6 +1,6 @@
 import { auth, router } from './index.js';
 import { getUser } from './serviceAPI.js';
-import { createElement, pluralizeMonth, pluralizeYears } from './helper.js';
+import { createElement, pluralizeYears } from './helper.js';
 import { API_URL } from './const.js';
 
 
@@ -29,7 +29,7 @@ export const createWishlist = async (pageLogin) => {
 
     const avatar = createElement('img', {
         className: 'profile__avatar',
-        src: 'img/avatar.png',
+        src: `${API_URL}/${user.avatar}`,
         alt: 'Аватар пользователя',
     });
 
@@ -50,14 +50,13 @@ export const createWishlist = async (pageLogin) => {
 
     if (user.birthdate) {
         const birthday = new Date(user.birthdate);
-        const day = birthday.getDate();
-        const month = pluralizeMonth(birthday.getMonth());
-        // const month = birthday.toLocaleString('default', { month: 'long' });
+        const dayAndMonth = birthday.toLocaleString('default', { month: 'long', day: 'numeric' });
         const ageDiffMs = Date.now() - birthday.getTime();
         const ageDate = new Date(ageDiffMs);
         const age = Math.abs(ageDate.getUTCFullYear() - 1970);
         const plural = pluralizeYears(age);
-        const ageMessage = `${day} ${month} исполнится ${age} ${plural}`;
+
+        const ageMessage = `${dayAndMonth} исполнится ${age} ${plural}`;
 
 
         const birthdateElem = createElement('p', {

@@ -9,10 +9,11 @@
 }
 
 .edit__avatar-image {
-    max-width: 437px;
-    width: 100%;
+    width: 437px;
+    height: 437px;
     border-radius: 50%;
     margin-right: 106px;
+    object-fit: cover;
 }
 
 .edit__avatar-load {
@@ -194,7 +195,8 @@
     }
 
     .edit__avatar-image {
-        max-width: 466px;
+        width: 466px;
+        height: 466px;
         margin-right: 34px;
     }
 
@@ -239,7 +241,8 @@
     }
 
     .edit__avatar-image {
-        max-width: 340px;
+        width: 340px;
+        height: 340px;
         margin-right: 25px;
     }
 
@@ -298,7 +301,8 @@
     }
 
     .edit__avatar-image {
-        max-width: 160px;
+        width: 160px;
+        height: 160px;
         margin-right: 0;
         margin-bottom: 16px;
     }
