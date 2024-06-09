@@ -4,6 +4,7 @@ import { JWT_TOKEN_KEY } from './const.js';
 import { getLogin } from './serviceAPI.js';
 import { createWishlist } from './createWishlist.js';
 import { createEditProfile } from './createEditProfile.js';
+import { createEditWish } from './createEditWish.js';
 
 
 export const router = Router();
@@ -13,8 +14,14 @@ let isMainPage = true;
 
 const app = document.querySelector('.app');
 
-const handleEditPageRoute = (id) => {
+const handleEditPageRoute = async (id) => {
     isMainPage = false;
+    app.textContent = '';
+
+    const { sectionEditWish, formWish } = await createEditWish(id);
+
+    renderNavigation('profile', formWish);
+    app.append(sectionEditWish);
 };
 
 const handleEditProfileRoute = async (login) => {

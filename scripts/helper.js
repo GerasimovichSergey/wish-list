@@ -30,7 +30,10 @@ export const handelImageFileSelection = (inputFile, image, inputHidden) => {
 
             reader.addEventListener('load', () => {
                 image.src = reader.result;
-                inputHidden.value = reader.result;
+
+                if (inputHidden) {
+                    inputHidden.value = reader.result;
+                }
             });
 
             reader.readAsDataURL(file);
@@ -53,27 +56,28 @@ export const createSelectDate = (selectDay, selectMonth, selectYear, birthdate) 
     const month = ['', 'Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'];
 
     for (let i = 0; i < month.length; i++) {
-        const option = createElement('option');
-
-        option.value = i;
-        option.text = month[i];
+        const option = createElement('option', {
+            value: i,
+            text: month[i],
+        });
 
         selectMonth.append(option);
     }
 
     const currentYear = new Date().getFullYear();
 
-    const optionYear = createElement('option');
-    optionYear.value = '';
-    optionYear.text = '';
+    const optionYear = createElement('option', {
+        value: '',
+        text: '',
+    });
 
     selectYear.append(optionYear);
 
     for (let year = currentYear; year >= currentYear - 100; year--) {
-        const option = createElement('option');
-
-        option.value = year;
-        option.text = year;
+        const option = createElement('option', {
+            value: year,
+            text: year,
+        });
 
         selectYear.append(option);
     }
@@ -91,4 +95,17 @@ export const createSelectDate = (selectDay, selectMonth, selectYear, birthdate) 
             currentTarget.blur();
         })
     })
+};
+
+export const createOptionCurrency = (select) => {
+    const currencies = ['RUB', 'USD', 'EUR', 'GBP'];
+
+    for (let i = 0; i < currencies.length; i++) {
+        const option = createElement('option', {
+            value: currencies[i],
+            text: currencies[i],
+        });
+
+        select.append(option);
+    }
 };

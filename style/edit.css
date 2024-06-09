@@ -49,7 +49,7 @@
 }
 
 .edit__label {
-    max-width: 686px;
+    max-width: 700px;
 }
 
 .edit__label-text {
@@ -140,10 +140,9 @@
 
 .edit__wish {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(288px, 700px));
     gap: 44px 36px;
     margin-bottom: 44px;
-
 }
 
 .edit__label_price {
@@ -155,7 +154,6 @@
     gap: 36px;
     align-items: flex-end;
 }
-
 
 .edit__select_currency {
     width: 100%;
