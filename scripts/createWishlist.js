@@ -115,6 +115,10 @@ export const createWishlist = async (pageLogin) => {
         container.append(categoriesList);
 
         for (const wishTitle in user.wish) {
+            if (user.wish[wishTitle].length === 0) {
+                continue;
+            }
+
             const categoriesItem = createElement('li', {
                 className: 'categories__item',
             });
