@@ -28,6 +28,8 @@ export const handelImageFileSelection = (inputFile, image, inputHidden) => {
             const file = event.target.files[0];
             const reader = new FileReader();
 
+            reader.readAsDataURL(file);
+
             reader.addEventListener('load', () => {
                 image.src = reader.result;
 
@@ -35,8 +37,6 @@ export const handelImageFileSelection = (inputFile, image, inputHidden) => {
                     inputHidden.value = reader.result;
                 }
             });
-
-            reader.readAsDataURL(file);
         }
     };
 
@@ -97,7 +97,7 @@ export const createSelectDate = (selectDay, selectMonth, selectYear, birthdate) 
     })
 };
 
-export const createOptionCurrency = (select) => {
+export const createOptionCurrency = (select, currency) => {
     const currencies = ['RUB', 'USD', 'EUR', 'GBP'];
 
     for (let i = 0; i < currencies.length; i++) {
@@ -107,5 +107,9 @@ export const createOptionCurrency = (select) => {
         });
 
         select.append(option);
+    }
+
+    if (currency) {
+        select.value = currency;
     }
 };

@@ -1,11 +1,10 @@
 import { createElement, createOptionCurrency, handelImageFileSelection } from './helper.js';
-import { ROUTE_NEW_WISH } from './const.js';
+import { API_URL, ROUTE_NEW_WISH } from './const.js';
+import { deleteWish, getWish, sendDataWish, updateDataWish } from './serviceAPI.js';
 
 
 export const createEditWish = async (id) => {
-    if (id === ROUTE_NEW_WISH) {
-
-    }
+    const wishData = id !== ROUTE_NEW_WISH && (await getWish(id));
 
     const sectionEditWish = createElement('section', {
         className: 'edit edit_wish',
@@ -17,6 +16,21 @@ export const createEditWish = async (id) => {
 
     const formWish = createElement('form', {
         className: 'edit__form',
+    });
+
+    formWish.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(event.target);
+        const data = Object.fromEntries(formData);
+
+        if (!wishData) {
+            await sendDataWish(data);
+        } else {
+            await updateDataWish(id, data);
+        }
+
+        history.back();
     });
 
     const editWish = createElement('fieldset', {
@@ -36,6 +50,7 @@ export const createEditWish = async (id) => {
         className: 'edit__input',
         type: 'text',
         name: 'title',
+        value: wishData.title ? wishData.title : '',
     });
 
     labelTitle.append(labelTextTitle, inputTitle);
@@ -53,6 +68,7 @@ export const createEditWish = async (id) => {
         className: 'edit__input',
         type: 'text:',
         name: 'category',
+        value: wishData.category ? wishData.category : '',
     });
 
     labelCategory.append(labelTextCategory, inputCategory);
@@ -74,6 +90,7 @@ export const createEditWish = async (id) => {
         className: 'edit__input',
         type: 'number',
         name: 'price',
+        value: wishData.price ? wishData.price : '',
     });
 
     labelPrice.append(labelTextPrice, inputPrice);
@@ -87,7 +104,7 @@ export const createEditWish = async (id) => {
         name: 'currency',
     });
 
-    createOptionCurrency(selectCurrency);
+    createOptionCurrency(selectCurrency, wishData.currency);
 
     labelCurrency.append(selectCurrency);
     priceWrapper.append(labelPrice, labelCurrency);
@@ -105,6 +122,7 @@ export const createEditWish = async (id) => {
         className: 'edit__input',
         type: 'text:',
         name: 'link',
+        value: wishData.link ? wishData.link : '',
     });
 
     labelLink.append(labelTextLink, inputLink);
@@ -120,7 +138,7 @@ export const createEditWish = async (id) => {
 
     const photo = createElement('img', {
         className: 'edit__wish-image',
-        src: 'img/no-photo.jpg',
+        src: wishData.image ? `${API_URL}/${wishData.image}` : 'img/no-photo.jpg',
         alt: 'фото желания',
     });
 
@@ -145,16 +163,29 @@ export const createEditWish = async (id) => {
             </svg>
         `,
         type: 'button',
+        style: photo.src.includes(API_URL) && !photo.src.includes('empty') || 'display: none;',
     });
 
     const editHiddenInput = createElement('input', {
-        className: 'hidden',
-        name: 'img',
+        type: 'hidden',
+        name: 'image',
+        value: wishData.image ? `${API_URL}/${wishData.image}` : '',
+    });
+
+    inputPhoto.addEventListener('change', () => {
+        btnPhotoDelete.style.display = 'block';
+    });
+
+    btnPhotoDelete.addEventListener('click', () => {
+        photo.src = 'img/no-photo.jpg';
+        editHiddenInput.value = '';
+        inputPhoto.value = '';
+        btnPhotoDelete.style.display = 'none';
     });
 
     handelImageFileSelection(inputPhoto, photo, editHiddenInput);
 
-    editWishPhoto.append(labelPhoto, btnPhotoDelete);
+    editWishPhoto.append(labelPhoto, btnPhotoDelete, editHiddenInput);
 
     const editSubmitWrapper = createElement('div', {
         className: 'edit__submit-wrapper',
@@ -170,6 +201,11 @@ export const createEditWish = async (id) => {
         className: 'edit__delete-btn btn',
         textContent: 'Удалить желание',
         type: 'button',
+    });
+
+    btnDeleteWish.addEventListener('click', async () => {
+        await deleteWish(id);
+        history.back();
     });
 
     editSubmitWrapper.append(btnSaveWish, btnDeleteWish);
